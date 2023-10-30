@@ -18,6 +18,10 @@ class PlayerFactory extends Factory
     {
         return [
             //
+            'name' => fake()->name(),
+            'team' => fake()->randomElement(['Red Bull Racing', 'Mercedes', 'Ferrari', 'Mclaren', 'Aston Martin',
+                                            'Alpine', 'Williams', 'Alphatauri', 'Alfa Romeo', 'Hass']),
+            'date_of_birth' => fake()->dateTime()
         ];
     }
 }
