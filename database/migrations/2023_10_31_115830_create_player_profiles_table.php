@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('player_profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('email');
-            $table->phoneNumber('phone_number');
-            $table->dateTime('date_of_birth');
+            $table->string('phone_number')->nullable();
+            $table->dateTime('date_of_birth')->nullable();
             $table->bigInteger('player_id')->unsigned();
             $table->timestamps();
             $table->foreign('player_id')->references('id')->on('players')
