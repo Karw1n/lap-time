@@ -18,7 +18,8 @@ class LapFactory extends Factory
     {
         return [
             //
-            'lap_time' => fake()->time('i:s', rand(100, 300))
+            'lap_time' => fake()->time('i:s', rand(100, 300)),
+            'set_by' => 1,
         ];
     }
 }

@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('track_name')->nullable();
             $table->dateTime('date_set')->nullable();
             $table->timestamps();
+
+            $table->bigInteger('set_by')->unsigned();
+            $table->foreign('set_by')->references('id')->on('players')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

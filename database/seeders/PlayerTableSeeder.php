@@ -19,6 +19,6 @@ class PlayerTableSeeder extends Seeder
         $a->favourite_team = "New Team";
         $a->save();
 
-        Player::factory()->count(50)->create();
+        Player::factory()->count(10)->create();
     }
 }
