@@ -18,7 +18,7 @@ class LapFactory extends Factory
     {
         return [
             //
-            'lap_time' = $faker->timeBeween('-1 minutes', '3 minutes', 'i:s:v')
+            'lap_time' => fake()->time('i:s', rand(100, 300))
         ];
     }
 }
