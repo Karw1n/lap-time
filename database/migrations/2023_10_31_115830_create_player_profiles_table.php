@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('player_profiles', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->email('email');
+            $table->phoneNumber('phone_number');
+            $table->dateTime('date_of_birth');
             $table->timestamps();
         });
     }
