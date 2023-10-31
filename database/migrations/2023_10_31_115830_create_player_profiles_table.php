@@ -17,7 +17,10 @@ return new class extends Migration
             $table->string('email');
             //$table->phoneNumber('phone_number');
             //$table->dateTime('date_of_birth');
+            $table->bigInteger('player_id')->unsigned();
             $table->timestamps();
+            $table->foreign('player_id')->references('id')->on('players')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
