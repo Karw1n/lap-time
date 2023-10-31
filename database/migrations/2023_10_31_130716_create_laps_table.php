@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('laps', function (Blueprint $table) {
             $table->id();
             $table->time('lap_time');
-            $table->string('track_name');
-            $table->dateTime('date_set');
+            $table->string('track_name')->nullable;
+            $table->dateTime('date_set')->nullable;
             $table->timestamps();
         });
     }
