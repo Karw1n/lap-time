@@ -9,6 +9,8 @@ class Player extends Model
 {
     use HasFactory;
 
+    
+
     public function playerProfile()
     {
         return $this->hasOne(PlayerProfile::class);
