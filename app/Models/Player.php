@@ -15,5 +15,6 @@ class Player extends Model
     {
         return $this->hasOne(PlayerProfile::class);
         return $this->hasMany(Lap::class);
+        return $this->belongsToMany(Car::class);
     }
 }
