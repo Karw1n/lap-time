@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(PlayerTableSeeder::class);
+        $this->call(PlayerProfileSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 
@@ -22,11 +23,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $x = new PlayerProfile;
-        $x->email = 'newemail@fakeemail.com';
-        $x->player_id = 1;
-        $x->save();
-        
 
 
     }

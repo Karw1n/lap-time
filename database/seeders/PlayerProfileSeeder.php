@@ -12,6 +12,10 @@ class PlayerProfileSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $x = new PlayerProfile;
+        $x->email = 'newemail@fakeemail.com';
+        $x->player_id = 1;
+        $x->save();
+        
     }
 }
