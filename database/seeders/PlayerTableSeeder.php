@@ -16,7 +16,7 @@ class PlayerTableSeeder extends Seeder
         //
         $a = new Player;
         $a->name = "New Player";
-        $a->team = "New Team";
+        $a->favourite_team = "New Team";
         $a->save();
 
         Player::factory()->count(50)->create();
