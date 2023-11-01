@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('player_car', function (Blueprint $table) {
             $table->primary(['player_id', 'car_id']);
-            $table->bigInteger('player_id')->unsiged();
+            $table->bigInteger('player_id')->unsigned();
             $table->bigInteger('car_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('player_id')->references('id')->on('players')
                 ->onDelete('cascade')->onUpdate('cascade');
 
-            $table->foreign('car_id')->references('id')->on('laps')
+            $table->foreign('car_id')->references('id')->on('cars')
                 ->onDelete('cascade')->onUpdate('cascade');
             
         });

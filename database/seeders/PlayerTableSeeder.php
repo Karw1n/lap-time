@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Player;
+use App\Models\Lap;
 
 class PlayerTableSeeder extends Seeder
 {
@@ -15,10 +16,12 @@ class PlayerTableSeeder extends Seeder
     {
         //
         $a = new Player;
-        $a->name = "New Player";
-        $a->favourite_team = "New Team";
+        $a->name = "Alex Albon";
+        $a->favourite_team = "Williams";
         $a->save();
-
+        //$a->car()->attach(1);
         Player::factory()->count(10)->create();
-    }
+        //Player::factory(5)->has(Lap::factory()->count(5))->create();
+    
+        }
 }

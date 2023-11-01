@@ -11,7 +11,7 @@ class Player extends Model
 
     
 
-    public function playerProfile()
+    public function player()
     {
         return $this->hasOne(PlayerProfile::class);
         return $this->hasMany(Lap::class);
