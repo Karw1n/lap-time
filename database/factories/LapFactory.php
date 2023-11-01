@@ -18,7 +18,11 @@ class LapFactory extends Factory
     {
         return [
             //
-            'lap_time' => fake()->time('i:s', rand(100, 300)),
+            'lap_time'   => fake()->time('i:s', rand(100, 300)),
+            'track_name' => fake()->randomElement(["Bahrain International Circuit", "Circuit de Monaco", "Red Bull Ring",
+                    "Silverstone Circuit", "Monza Circuit", "Sochi Autodrom", "Suzuka Circuit","Jeddah Corniche Circuit",
+                    "Yas Marina Circuit"]),
+            'date_set'   => fake()->date($format = 'Y-m-d', $max = 'now'),
             'set_by' => rand(1, 5)
         ];
     }

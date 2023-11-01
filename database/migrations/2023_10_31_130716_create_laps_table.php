@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->time('lap_time');
             $table->string('track_name')->nullable();
-            $table->dateTime('date_set')->nullable();
+            $table->date('date_set')->nullable();
             $table->timestamps();
 
             $table->bigInteger('set_by')->unsigned();
