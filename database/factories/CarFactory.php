@@ -18,6 +18,9 @@ class CarFactory extends Factory
     {
         return [
             //
+            'team' => fake()->randomElement(['Red Bull Racing', 'Mercedes', 'Ferrari', 'Mclaren', 'Aston Martin',
+                                            'Alpine', 'Williams', 'Alphatauri', 'Alfa Romeo', 'Hass']),
+            'model' => fake()->numerify('Model##')
         ];
     }
 }

@@ -19,5 +19,7 @@ class CarTableSeeder extends Seeder
         $x->save();
         //$x->player()->attach(1);
 
+        Car::factory()->count(100)->create();
+
     }
 }
