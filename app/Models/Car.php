@@ -12,5 +12,6 @@ class Car extends Model
     public function car()
     {
         return $this->belongsToMany(Player::class);
+        return $this->hasMany(Lap::class);
     }
 }

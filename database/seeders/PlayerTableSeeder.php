@@ -19,8 +19,11 @@ class PlayerTableSeeder extends Seeder
         $a->name = "Alex Albon";
         $a->favourite_team = "Williams";
         $a->save();
-        //$a->car()->attach(1);
-        Player::factory()->count(5)->create();
+        // //$a->car()->attach(1);
+        Player::factory()->count(10)->create();
+        // $player = Player::factory()->count(5)
+        //     ->has(Lap::factory()->count(3))
+        //     ->create();
         //Player::factory(5)->has(Lap::factory()->count(5))->create();
     
         }

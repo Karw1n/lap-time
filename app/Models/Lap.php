@@ -12,5 +12,6 @@ class Lap extends Model
     public function lap()
     {
         return $this->belongsTo(Player::class);
+        return $this->belongsTo(Car::class);
     }
 }

@@ -23,7 +23,8 @@ class LapFactory extends Factory
                     "Silverstone Circuit", "Monza Circuit", "Sochi Autodrom", "Suzuka Circuit","Jeddah Corniche Circuit",
                     "Yas Marina Circuit"]),
             'date_set'   => fake()->date($format = 'Y-m-d', $max = 'now'),
-            'set_by' => rand(1, 5)
+            'player_id' => rand(1, 5),
+            'car_id' => rand(1, 50)
         ];
     }
 }

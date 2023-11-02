@@ -16,11 +16,18 @@ return new class extends Migration
             $table->time('lap_time');
             $table->string('track_name')->nullable();
             $table->date('date_set')->nullable();
+            
+            $table->bigInteger('player_id')->unsigned();
+            $table->foreign('player_id')->references('id')->on('players')
+                ->onDelete('cascade')->onUpdate('cascade');
+            
+            $table->bigInteger('car_id')->unsigned();
+            $table->foreign('car_id')->references('id')->on('cars')
+                ->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
 
-            $table->bigInteger('set_by')->unsigned();
-            $table->foreign('set_by')->references('id')->on('players')
-                ->onDelete('cascade')->onUpdate('cascade');
+            
         });
     }
 
