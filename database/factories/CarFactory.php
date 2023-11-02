@@ -29,7 +29,6 @@ class CarFactory extends Factory
         ];
 
         return [
-            //
             'team' => $f1Team,
             'model' => fake()->randomElement($f1carModels[$f1Team])
         ];
