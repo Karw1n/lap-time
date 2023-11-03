@@ -17,7 +17,6 @@ class PlayerProfileFactory extends Factory
     public function definition(): array
     {
         return [
-            //
             'email' => fake()->unique()->email,
             'phone_number' => fake()->phoneNumber(),
             'date_of_birth' => fake()->dateTime($max = 'now')

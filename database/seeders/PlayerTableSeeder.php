@@ -13,17 +13,14 @@ class PlayerTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         $a = new Player;
         $a->name = "Alex Albon";
         $a->favourite_team = "Williams";
         $a->save();
-        //Player::factory()->count(10)->create();
-        
+
         Player::factory(10)
             ->has(\App\Models\PlayerProfile::factory())
-            ->has(\App\Models\Lap::factory()->count(5))
+            ->has(\App\Models\Lap::factory()->count(3))
             ->create();
-        
         }
 }

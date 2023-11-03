@@ -17,14 +17,12 @@ class LapFactory extends Factory
     public function definition(): array
     {
         return [
-            //
             'lap_time'   => fake()->time('i:s', rand(100, 300)),
             'track_name' => fake()->randomElement(['Bahrain International Circuit', 'Circuit de Monaco', 'Red Bull Ring',
                     'Silverstone Circuit', 'Monza Circuit', 'Sochi Autodrom', 'Suzuka Circuit','Jeddah Corniche Circuit',
                     'Yas Marina Circuit']),
             'date_set'   => fake()->date($format = 'Y-m-d', $max = 'now'),
-            'car_id' => rand(1,51)
-            
+            'car_id' => rand(1,15)
             ];
     }
 }

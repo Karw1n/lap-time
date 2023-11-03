@@ -18,10 +18,5 @@ class PlayerProfileTableSeeder extends Seeder
         $alex->phone_number = '999-999-999';
         $alex->player_id = 1;
         $alex->save();
-
-        //PlayerProfile::factory()->count(5)->create();
-
-    
-        
     }
 }

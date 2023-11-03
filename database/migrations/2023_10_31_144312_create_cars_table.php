@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('team');
             $table->string('model')->nullable();
             $table->timestamps();
-
         });
     }
 

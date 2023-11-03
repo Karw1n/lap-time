@@ -16,7 +16,6 @@ class CarFactory extends Factory
      */
     public function definition(): array
     {
-
         $f1Teams = ['Red Bull Racing', 'Mercedes', 'Ferrari', 'Mclaren', 'Williams'];
         $f1Team = fake()->randomElement($f1Teams);
 
@@ -32,6 +31,5 @@ class CarFactory extends Factory
             'team' => $f1Team,
             'model' => fake()->randomElement($f1carModels[$f1Team])
         ];
-
     }
 }

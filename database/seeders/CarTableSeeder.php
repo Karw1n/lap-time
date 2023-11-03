@@ -13,12 +13,11 @@ class CarTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         $x = new Car;
         $x->team = "Williams";
         $x->model = 'FW43';
         $x->save();
-        $cars = Car::factory()->count(50)->create();
-
+        
+        Car::factory()->count(15)->create();
     }
 }

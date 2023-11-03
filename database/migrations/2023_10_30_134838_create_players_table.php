@@ -16,12 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('favourite_team');
             $table->timestamps();
-
-            
-            // $table->bigInteger('lap_id')->unsigned();
-            // $table->foreign('lap_id')->references('id')->on('lap')
-            //     ->onDelete('cascade')->onUpdate('cascade');
-
         });
     }
 

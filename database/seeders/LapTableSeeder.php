@@ -13,6 +13,11 @@ class LapTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //Lap::factory()->create();
+        $lap = new Lap;
+        $lap->player_id = 1;
+        $lap->car_id = 1;
+        $lap->lap_time = '01:28:00';
+        $lap->track_name = 'Circuit de Monaco';
+        $lap->save();
     }
 }

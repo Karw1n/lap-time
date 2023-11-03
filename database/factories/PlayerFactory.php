@@ -18,7 +18,6 @@ class PlayerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
             'name' => fake()->name(),
             'favourite_team' => fake()->randomElement(['Red Bull Racing', 'Mercedes', 'Ferrari', 'Mclaren', 'Aston Martin',
                                             'Alpine', 'Williams', 'Alphatauri', 'Alfa Romeo', 'Hass'])
