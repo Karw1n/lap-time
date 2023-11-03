@@ -9,7 +9,7 @@ class PlayerProfile extends Model
 {
     use HasFactory;
 
-    function playerProfile()
+    function player()
     {
         return $this->belongsTo(Player::class);
     }

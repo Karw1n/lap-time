@@ -9,12 +9,18 @@ class Player extends Model
 {
     use HasFactory;
 
-    
-
-    public function player()
+    public function playerProfile()
     {
         return $this->hasOne(PlayerProfile::class);
+    }
+
+    public function laps()
+    {
         return $this->hasMany(Lap::class);
+    }
+        
+    public function cars()
+    {
         return $this->belongsToMany(Car::class);
     }
 }

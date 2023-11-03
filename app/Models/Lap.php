@@ -9,9 +9,13 @@ class Lap extends Model
 {
     use HasFactory;
 
-    public function lap()
+    public function player()
     {
         return $this->belongsTo(Player::class);
-        return $this->belongsTo(Car::class);
+    }    
+        
+    public function car()
+    {
+    return $this->belongsTo(Car::class);
     }
 }
