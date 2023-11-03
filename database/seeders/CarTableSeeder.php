@@ -16,10 +16,9 @@ class CarTableSeeder extends Seeder
         //
         $x = new Car;
         $x->team = "Williams";
+        $x->model = 'FW43';
         $x->save();
-        //$x->player()->attach(1);
-
-        Car::factory()->count(50)->create();
+        $cars = Car::factory()->count(50)->create();
 
     }
 }

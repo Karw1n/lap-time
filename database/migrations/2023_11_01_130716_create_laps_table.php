@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('laps', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('player_id')->unsigned();
+            $table->bigInteger('car_id')->unsigned();
             $table->time('lap_time');
             $table->string('track_name')->nullable();
             $table->date('date_set')->nullable();
             
-            $table->bigInteger('player_id')->unsigned();
             $table->foreign('player_id')->references('id')->on('players')
                 ->onDelete('cascade')->onUpdate('cascade');
             
-            $table->bigInteger('car_id')->unsigned();
             $table->foreign('car_id')->references('id')->on('cars')
                 ->onDelete('cascade')->onUpdate('cascade');
 

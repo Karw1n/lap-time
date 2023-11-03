@@ -13,7 +13,6 @@ class LapTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        Lap::factory()->count(100)->create();
+        //Lap::factory()->create();
     }
 }

@@ -32,5 +32,6 @@ class CarFactory extends Factory
             'team' => $f1Team,
             'model' => fake()->randomElement($f1carModels[$f1Team])
         ];
+
     }
 }
