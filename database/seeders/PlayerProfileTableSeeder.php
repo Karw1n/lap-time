@@ -13,12 +13,14 @@ class PlayerProfileTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $x = new PlayerProfile;
-        $x->email = 'alexalbon@fakeemail.com';
-        $x->player_id = 1;
-        $x->save();
+        $alex = new PlayerProfile;
+        $alex->email = 'alexalbon@fakeemail.com';
+        $alex->phone_number = '999-999-999';
+        $alex->player_id = 1;
+        $alex->save();
 
-        //PlayerProfile::factory()->count()->create();
+        //PlayerProfile::factory()->count(5)->create();
+
     
         
     }

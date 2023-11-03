@@ -20,8 +20,7 @@ class PlayerProfileFactory extends Factory
             //
             'email' => fake()->unique()->email,
             'phone_number' => fake()->phoneNumber(),
-            'date_of_birth' => fake()->dateTime($max = 'now'),
-            'player_id' => 1
+            'date_of_birth' => fake()->dateTime($max = 'now')
         ];
     }
 }
