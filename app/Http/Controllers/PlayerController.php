@@ -12,6 +12,7 @@ class PlayerController extends Controller
     public function index()
     {
         //
+        return view('players.index');
     }
 
     /**
