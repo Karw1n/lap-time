@@ -6,7 +6,10 @@
     <h1> Best Laps - @yield('title')</h1>
 
 @section('content')
-    <p>{{$player->name}}</p>
+    <ul>
+        <li>Name: {{$player->name}}</li>
+        <li>Favourite Team: {{$player->favourite_team}}</li>
+    </ul>
 @endsection
 
 </body>
