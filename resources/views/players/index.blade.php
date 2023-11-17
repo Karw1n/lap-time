@@ -9,7 +9,8 @@
     <p>Players</p>
     <ul>
         @foreach ($players as $player)
-            <li><a href="/players/{{$player->id}}">{{$player->name}}</a></li>
+            <li><a href="{{route('players.show', ['id' => $player->id])}}">
+                {{$player->name}}</a></li>
         @endforeach
     </ul>
 @endsection

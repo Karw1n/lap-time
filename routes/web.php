@@ -17,7 +17,8 @@ use App\Http\Controllers\PlayerController;
 
 Route::get('/players', [PlayerController::class, 'index']);
 
-Route::get('/players/{id}', [PlayerController::class, 'show']);
+Route::get('/players/{id}', [PlayerController::class, 'show'])
+    ->name('players.show');
 
 Route::get('/', function () {
     return view('test');
