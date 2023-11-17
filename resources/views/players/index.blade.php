@@ -9,7 +9,7 @@
     <p>Players</p>
     <ul>
         @foreach ($players as $player)
-            <li>{{ $player->name }}</li>
+            <li><a href="/players/{{$player->id}}">{{$player->name}}</a></li>
         @endforeach
     </ul>
 @endsection
