@@ -31,6 +31,10 @@ class PlayerController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'favourite_team' => 'required|max:255'
+        ]);
     }
 
     /**
