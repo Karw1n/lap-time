@@ -23,6 +23,8 @@ Route::post('/players' , [PlayerController::class, 'store'])->name('players.stor
 
 Route::get('/players/{id}', [PlayerController::class, 'show'])->name('players.show');
 
+Route::delete('/players/{id}', [PlayerController::class, 'destroy'])->name('players.destroy');
+
 Route::get('/', function () {
     return view('test');
 });
