@@ -35,6 +35,16 @@ class PlayerController extends Controller
             'name' => 'required|max:255',
             'favourite_team' => 'required|max:255'
         ]);
+
+        $p = new Player;
+        $p->name = $validatedData['name'];
+        $p->favourite_team = $validatedData['favourite_team'];
+        $p->save();
+
+        session()->flash('message', 'Player was created.');
+        return redirect()->route('players.index');
+
+
     }
 
     /**
