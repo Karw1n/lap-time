@@ -10,6 +10,13 @@
         <li>Name: {{$player->name}}</li>
         <li>Favourite Team: {{$player->favourite_team}}</li>
     </ul>
+
+    <form method="POST"
+        action="{{ route('players.destroy', ['id' => $player->id]) }}">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Delete</button>
+    </form>
 @endsection
 
 </body>

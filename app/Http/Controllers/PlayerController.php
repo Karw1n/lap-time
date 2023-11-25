@@ -80,7 +80,6 @@ class PlayerController extends Controller
         $player = Player::findOrFail($id);
         $player->delete();
 
-        return redirect()route('player.index')->with('message', 'Player was
-        deleted.');
+        return redirect()->route('players.index')->with('message', 'Player was deleted.');
     }
 }
