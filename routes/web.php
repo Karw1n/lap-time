@@ -26,7 +26,7 @@ Route::get('/players/{id}', [PlayerController::class, 'show'])->name('players.sh
 Route::delete('/players/{id}', [PlayerController::class, 'destroy'])->name('players.destroy');
 
 Route::get('/', function () {
-    return view('test');
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.playerapp')
 
 @section('title', 'Player Creator')
 
