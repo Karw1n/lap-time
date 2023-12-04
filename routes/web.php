@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +28,46 @@ Route::get('/players/{id}', [PlayerController::class, 'show'])->name('players.sh
 
 Route::delete('/players/{id}', [PlayerController::class, 'destroy'])->name('players.destroy');
 
+// GET
+Route::get('/blog', [PostsController::class, 'index'])->name('blog.index');
+Route::get('/blog/{id}', [PostsController::class, 'show'])->name('blog.show');
+
+// POST
+Route::get('/blog/create', [PostsController::class, 'create'])->name('blog.create');
+Route::post('/blog', [PostsController::class, 'store'])->name('blog.store');
+
+// PUT OR PATCH
+Route::get('/blog/edit/{id}', [PostsController::class, 'edit'])->name('blog.edit');
+Route::get('/blog/{id}', [PostsController::class, 'update'])->name('blog.update');
+
+// DELETE
+Route::delete('/blog/{id}', [PostsController::class, 'destroy'])->name('blog.destory');
+
+Route::prefix('/blog')->group(function () {
+    Route::get('/', [PostsController::class, 'index'])->name('blog.index');
+    Route::get('/{id}', [PostsController::class, 'show'])->name('blog.show');
+    Route::get('/create', [PostsController::class, 'create'])->name('blog.create');
+    Route::post('', [PostsController::class, 'store'])->name('blog.store');
+    Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('blog.edit');
+    Route::get('/{id}', [PostsController::class, 'update'])->name('blog.update');
+    Route::delete('/{id}', [PostsController::class, 'destroy'])->name('blog.destory');
+})
+
+//Fallback route for when blog does not exist
+
+
+//Route::resource('/blog', PostsController::class);
+
+// Multiple HTTP verbs
+// Route::any('/blog', [PostsController::class, 'index']);
+
+// Route for invoke method
+Route::get('/', HomeController::class);
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function ()) {
-    return view('welcome');
-}
 
 Route::get('/dashboard', function () {
     return view('dashboard');
