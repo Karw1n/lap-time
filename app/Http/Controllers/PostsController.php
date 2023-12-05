@@ -64,7 +64,8 @@ class PostsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::where('id', $id)->first();
+        return view('blog.edit', ['post' => $post]);
     }
 
     /**
@@ -72,7 +73,18 @@ class PostsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|unique:posts,title,' . $id,
+            'excerpt' => 'required',
+            'body' => 'required',
+            'image_path' => 'mimes:jpg,png,jpeg|max:5048'
+        ]);
+        Post::where('id', $id)->update($request->except(['_token', '_method']));
+        
+    
+        session()->flash('message', 'Post was edited.');
+            return redirect()->route('blog.index');
+    
     }
 
     /**
