@@ -43,14 +43,13 @@ Route::delete('/players/{id}', [PlayerController::class, 'destroy'])->name('play
 // // DELETE
 // Route::delete('/blog/{id}', [PostsController::class, 'destroy'])->name('blog.destory');
 
-Route::prefix('/blog')->group(function () {
+Route::prefix('blog')->group(function () {
     Route::get('/create', [PostsController::class, 'create'])->name('blog.create');
     Route::get('/', [PostsController::class, 'index'])->name('blog.index');
-    
     Route::post('', [PostsController::class, 'store'])->name('blog.store');
     Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('blog.edit');
     Route::get('/{id}', [PostsController::class, 'update'])->name('blog.update');
-    Route::delete('/{id}', [PostsController::class, 'destroy'])->name('blog.destory');
+    Route::delete('/{id}', [PostsController::class, 'destroy'])->name('blog.destroy');
     
     Route::get('/{id}', [PostsController::class, 'show'])->name('blog.show');
 });

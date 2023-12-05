@@ -15,41 +15,43 @@
         <hr class="border border-1 border-gray-300 mt-10">
     </div>
 
-<div class="m-auto pt-20">
-    <form
-        action=""
-        method=""
-        enctype="multipart/form-data">
+    @if ($errors->any())
+        <div>
+            Errors:
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-        <label for="is_published" class="text-gray-500 text-2xl">
-            Is Published
-        </label>
-        <input
-            type="checkbox"
-            class="bg-transparent block border-b-2 inline text-2xl outline-none"
-            name="is_published">
+<div class="m-auto pt-20">
+
+    <form
+        action=" {{ route('blog.store') }}"
+        method="POST"
+        enctype="multipart/form-data">
+        @csrf
 
         <input
             type="text"
             name="title"
             placeholder="Title..."
+            value="{{old('title')}}"
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
         <input
             type="text"
             name="excerpt"
             placeholder="Excerpt..."
-            class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
-
-        <input
-            type="number"
-            name="min_to_read"
-            placeholder="Minutes to read..."
+            value="{{old('excerpt')}}"
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
         <textarea
             name="body"
             placeholder="Body..."
+            value="{{old('body')}}"
             class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none"></textarea>
             
         <div class="bg-grey-lighter py-10">
@@ -69,6 +71,10 @@
             class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
             Submit Post
         </button>
+
+        
+        <a href="{{route('blog.index')}}">Cancel</a>
+        
     </form>
 </div>
 </body>

@@ -30,8 +30,23 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'title' => 'required|unique:posts,title',
+            'excerpt' => 'required',
+            'body' => 'required',
+            'image_path' => 'nullable|string'
+        ]);
+        // data needs to be validated
             $post = new Post;
+            $post->title = $validatedData['title']; 
+            $post->excerpt = $validatedData['excerpt'];
+            $post->body = $validatedData['body'];
+            $post->image_path = 'temp';
+            $post->save();
             
+            session()->flash('message', 'Post was created.');
+            return redirect()->route('blog.index');
+    
     }
 
     /**
@@ -64,6 +79,10 @@ class PostsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect()->route('blog.index')->with('message', 'Post was deleted.');
+    
     }
 }
