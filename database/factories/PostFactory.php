@@ -21,6 +21,7 @@ class PostFactory extends Factory
             'excerpt' => fake()->realText($maxNbChars = 50),
             'body' => fake()->text(),
             'image_path' => fake()->imageUrl(640,480),
+            'user_id' => 1
         ];
     }
 }
