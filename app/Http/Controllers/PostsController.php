@@ -13,8 +13,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->get();
-        return view('blog.index', compact('posts'));
+        $posts = Post::all();
+        return view('blog.index', ['posts' => $posts]);
     }
 
     /**
@@ -22,7 +22,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('blog.create');
     }
 
     /**
@@ -30,7 +30,8 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $post = new Post;
+            
     }
 
     /**
@@ -38,7 +39,8 @@ class PostsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('blog.show', ['post' => $post]);
     }
 
     /**
