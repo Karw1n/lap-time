@@ -48,9 +48,8 @@ Route::prefix('blog')->group(function () {
     Route::get('/', [PostsController::class, 'index'])->name('blog.index');
     Route::post('', [PostsController::class, 'store'])->name('blog.store');
     Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('blog.edit');
-    Route::get('/{id}', [PostsController::class, 'update'])->name('blog.update');
+    Route::patch('/{id}', [PostsController::class, 'update'])->name('blog.update');
     Route::delete('/{id}', [PostsController::class, 'destroy'])->name('blog.destroy');
-    
     Route::get('/{id}', [PostsController::class, 'show'])->name('blog.show');
 });
 
