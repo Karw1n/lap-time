@@ -41,7 +41,7 @@ class PostsController extends Controller
             $post->title = $validatedData['title']; 
             $post->excerpt = $validatedData['excerpt'];
             $post->body = $validatedData['body'];
-            $post->image_path = 'temp';
+            $post->image_path = $this->storeImage($request);
             $post->save();
             
             session()->flash('message', 'Post was created.');
@@ -84,5 +84,13 @@ class PostsController extends Controller
 
         return redirect()->route('blog.index')->with('message', 'Post was deleted.');
     
+    }
+
+    private function storeImage($request) 
+    {
+        $newImageName = uniqid() . '-' . $request->title . '.'.
+        $request->image->extension();
+
+        return $request->image->move(public_path('images'), $newImageName);
     }
 }
