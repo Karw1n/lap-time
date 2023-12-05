@@ -54,5 +54,12 @@
             </p>
         </div>
     </div>
+    
+    <form method="POST"
+        action="{{ route('blog.destroy', ['id' => $post->id]) }}">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Delete</button>
+    </form>
     </body>
 </html>
