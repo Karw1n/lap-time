@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\FallbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,10 +51,10 @@ Route::prefix('/blog')->group(function () {
     Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('blog.edit');
     Route::get('/{id}', [PostsController::class, 'update'])->name('blog.update');
     Route::delete('/{id}', [PostsController::class, 'destroy'])->name('blog.destory');
-})
+});
 
 //Fallback route for when blog does not exist
-
+Route::fallback(FallbackController::class);
 
 //Route::resource('/blog', PostsController::class);
 
@@ -62,7 +62,7 @@ Route::prefix('/blog')->group(function () {
 // Route::any('/blog', [PostsController::class, 'index']);
 
 // Route for invoke method
-Route::get('/', HomeController::class);
+//Route::get('/', HomeController::class);
 
 Route::get('/', function () {
     return view('welcome');
