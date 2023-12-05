@@ -52,7 +52,11 @@
             <p class="text-base text-black pt-10">
                 {{ $post->body }}
             </p>
+
+            <img src="{{ $post->image_path}}">
         </div>
+
+
     </div>
     
     <form method="POST"
