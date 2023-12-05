@@ -64,5 +64,8 @@
             </div>
         </div>
     @endforeach
+    <div class="pb-5 w-1/10">
+        {{$posts->links()}}
+    </div>
 </body>
 </html>
