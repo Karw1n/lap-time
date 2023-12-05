@@ -34,7 +34,7 @@ class PostsController extends Controller
             'title' => 'required|unique:posts,title',
             'excerpt' => 'required',
             'body' => 'required',
-            'image_path' => 'nullable|string'
+            'image_path' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
         // data needs to be validated
             $post = new Post;
@@ -44,6 +44,7 @@ class PostsController extends Controller
             $post->image_path = $this->storeImage($request);
             $post->save();
             
+
             session()->flash('message', 'Post was created.');
             return redirect()->route('blog.index');
     
