@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use Auth;
 
 class PostsController extends Controller
 {
+    public function _construct() {
+        $this->middleware('auth')->only(['create', 'edit', 'update', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -34,17 +38,17 @@ class PostsController extends Controller
             'title' => 'required|unique:posts,title',
             'excerpt' => 'required',
             'body' => 'required',
-            'image_path' => 'required|mimes:jpg,png,jpeg|max:5048'
+            'image_path' => '|mimes:jpg,png,jpeg|max:5048'
         ]);
         // data needs to be validated
             $post = new Post;
+            $post->user_id = Auth::id();
             $post->title = $validatedData['title']; 
             $post->excerpt = $validatedData['excerpt'];
             $post->body = $validatedData['body'];
-            $post->image_path = $this->storeImage($request);
+            $post->image_path = 'temp'; //$this->storeImage($request);
             $post->save();
             
-
             session()->flash('message', 'Post was created.');
             return redirect()->route('blog.index');
     
