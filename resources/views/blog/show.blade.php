@@ -48,7 +48,7 @@
                         <p class="mt-2">{{ $comment->content}}</p>
                     </div>
                 </div>
-                @if (Auth::id() === $comment->user->id)
+                @if (Auth::id() === $comment->user->id || auth()->user()->role_as === 1)
                 <div class="flex justify-end mt-2">
                 <button class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-600">Edit</button>
                 <button type="button" value="{{$comment->id}}" class="deleteComment bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
@@ -74,13 +74,20 @@
         </div>
     </div>
 
-    <form method="POST" 
-        class="flex items-center justify-center h-screen"
-        action="{{ route('blog.destroy', ['id' => $post->id]) }}">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">Delete Post</button>
-    </form>
+    @if (Auth::id() === $post->user->id || auth()->user()->role_as === 1)
+    <div class="mt-4 items-center">
+    <button class="bg-blue-500 text-white px-4 py-2 rounded-md mr-4 hover:bg-blue-600">
+            <a href="{{ route('blog.edit', $post->id)}}">Edit Post</a>
+    </button>
+
+    <form action=" {{ route('blog.destroy', $post->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+          <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600" type="submit">
+            Delete
+    </button>
+    </div>
+    @endif
 
 @endsection
 </body>

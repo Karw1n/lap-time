@@ -28,19 +28,6 @@
             on {{$post->updated_at->format('d/m/Y')}}
         </p>
       </div>
-      @if (Auth::id() === $post->user->id)
-      <div class="mt-4">
-          <button class="bg-blue-500 text-white px-4 py-2 rounded-md mr-4 hover:bg-blue-600">
-            <a href="{{ route('blog.edit', $post->id)}}">Edit Post</a>
-          </button>
-          <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600" type="submit">
-            <form action=" {{ route('blog.destroy', $post->id) }}" method="POST">
-               @csrf
-                @method('DELETE')
-                Delete
-          </button>
-        </div>
-        @endif
     @endforeach
     </div>
 
