@@ -25,11 +25,11 @@
     </div> 
 
     <div class="pt-10 pb-10 text-gray-900 text-xl text-left">
-        <p class="text-gray-600 mb-6">
+        <p class="text-gray-600 mb-6 underline">
            {{ $post->excerpt }}
         </p>
 
-        <p class="prose text-black pt-10 flex items-center">   
+        <p class="prose text-black pt-10 items-center">   
             {{ $post->body }}
             <img src="{{ $post->getImageURL()}}" class="ml-2">    
         </p>    
