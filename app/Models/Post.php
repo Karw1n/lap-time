@@ -9,12 +9,17 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id', 'title', 'excerpt', 'body', 'image_path'
+    ];
+
     public function user() 
     {
         return $this->belongsTo(User::class);
     }
 
-    public function metadata() {
-        return $this->hasOne(PostMeta::class);
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
