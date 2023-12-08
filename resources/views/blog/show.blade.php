@@ -8,7 +8,7 @@
         
     
     <div class="text-center">
-        <h1 class="text-5xl font-bold mb-4 text-blue-700">
+        <h1 class="text-5xl font-bold mb-4 text-gray-800">
             {{ $post->title }}
         </h1>
 
