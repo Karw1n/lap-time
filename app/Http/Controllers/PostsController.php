@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use Auth;
+use App\Models\Comment;
 
 class PostsController extends Controller
 {
@@ -17,7 +18,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('updated_at', 'desc')->paginate(5);
+        $posts = Post::orderBy('updated_at', 'desc')->paginate(10);
         return view('blog.index', ['posts' => $posts]);
     }
 
@@ -109,5 +110,16 @@ class PostsController extends Controller
         $request->image->extension();
 
         return $request->image->move(public_path('images'), $newImageName);
+    }
+
+    // Save Comment
+    function save_comment(Request $request){
+        $data=new Comment;
+        $data->post_id=$request->post;
+        $data->comment_text=$request->comment;
+        $data->save();
+        return response()->json([
+            'bool'=>true
+        ]);
     }
 }

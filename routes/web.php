@@ -6,6 +6,8 @@ use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FallbackController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,21 +53,17 @@ Route::prefix('blog')->group(function () {
     Route::patch('/{id}', [PostsController::class, 'update'])->name('blog.update');
     Route::delete('/{id}', [PostsController::class, 'destroy'])->name('blog.destroy');
     Route::get('/{id}', [PostsController::class, 'show'])->name('blog.show');
+    Route::post('/{id}', [CommentController::class, 'addComment'])->name('blog.comment.add');
+    Route::post('/{id}/delete-comment', [CommentController::class, 'destroy'])->name('blog.comment.destroy');
 });
+
+Route::resource('users', UserController::class)->only('show');
 
 //Fallback route for when blog does not exist
 Route::fallback(FallbackController::class);
 
-//Route::resource('/blog', PostsController::class);
-
-// Multiple HTTP verbs
-// Route::any('/blog', [PostsController::class, 'index']);
-
-// Route for invoke method
-//Route::get('/', HomeController::class);
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('blogwelcome');
 });
 
 
