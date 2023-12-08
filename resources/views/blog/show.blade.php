@@ -31,7 +31,7 @@
 
         <p class="prose text-black pt-10 flex items-center">   
             {{ $post->body }}
-            <img src="{{ $post->image_path}}" class="ml-2">    
+            <img src="{{ $post->getImageURL()}}" class="ml-2">    
         </p>    
     </div>
 

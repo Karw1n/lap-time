@@ -2,7 +2,7 @@
 <html>
 
 @section('content')
-    <div class="w-2/3 bg-white p-8 rounded shadow-md ">
+    <div class="w-2/3 bg-white p-8 rounded shadow-md m">
 
     <h1 class="text-4xl font-bold mb-8 text-blue-700">Create New Post</h1>
 

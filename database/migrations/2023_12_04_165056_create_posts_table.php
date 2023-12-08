@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->text('excerpt');
             $table->text('body');
-            $table->string('image_path')->nullable();
+            $table->string('image')->nullable();
             
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');

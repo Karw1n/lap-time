@@ -26,12 +26,12 @@ class PostFormRequest extends FormRequest
                 'title' => 'required|unique:posts,title,' . $this->id,
                 'excerpt' => 'required',
                 'body' => 'required',
-                'image_path' => 'mimes:jpg,png,jpeg|max:5048' 
+                'image' => 'mimes:jpg,png,jpeg|max:5048' 
         ];
 
         if (in_array($this->method(), ['POST'])) 
         {
-            $rules = ['image_path' => 'required|mimes:jpg,png,jpeg|max:5048'];
+            $rules = ['image' => 'required|mimes:jpg,png,jpeg|max:5048'];
         }
 
         return $rules;

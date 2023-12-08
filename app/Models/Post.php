@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'title', 'excerpt', 'body', 'image_path'
+        'user_id', 'title', 'excerpt', 'body', 'image'
     ];
 
     public function user() 
@@ -21,5 +21,14 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function getImageURL() 
+    {
+        if($this->image) {
+            return url('storage/'.$this->image);
+        } else {
+            return "https://via.placeholder.com/640x480.png/0077aa?text=totam={$this->name}";
+        }
     }
 }

@@ -39,7 +39,7 @@ class PostsController extends Controller
             'title' => 'required|unique:posts,title',
             'excerpt' => 'required',
             'body' => 'required',
-            'image_path' => '|mimes:jpg,png,jpeg|max:5048'
+            'image' => 'image'
         ]);
         // data needs to be validated
             $post = new Post;
@@ -47,7 +47,14 @@ class PostsController extends Controller
             $post->title = $validatedData['title']; 
             $post->excerpt = $validatedData['excerpt'];
             $post->body = $validatedData['body'];
-            $post->image_path = 'temp'; //$this->storeImage($request);
+            
+
+            if(request()->has('image')) {
+                $imagePath = request()->file('image')->store('post', 'public');
+                $validatedData['image'] = $imagePath;
+            }
+
+            $post->image = $validatedData['image'];
             $post->save();
             
             session()->flash('message', 'Post was created.');
@@ -82,8 +89,9 @@ class PostsController extends Controller
             'title' => 'required|unique:posts,title,' . $id,
             'excerpt' => 'required',
             'body' => 'required',
-            'image_path' => 'mimes:jpg,png,jpeg|max:5048'
+            'image' => 'image'
         ]);
+
         Post::where('id', $id)->update($request->except(['_token', '_method']));
         
     
@@ -106,7 +114,7 @@ class PostsController extends Controller
 
     private function storeImage($request) 
     {
-        $newImageName = uniqid() . '-' . $request->title . '.'.
+        $newImageName = uniqueid() . '-' . $request->title . '.'.
         $request->image->extension();
 
         return $request->image->move(public_path('images'), $newImageName);
